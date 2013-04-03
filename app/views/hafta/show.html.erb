@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tarih:</b>
+  <%= @haftum.tarih %>
+</p>
+
+<p>
+  <b>Durum:</b>
+  <%= @haftum.durum %>
+</p>
+
+
+<%= link_to 'Edit', edit_haftum_path(@haftum) %> |
+<%= link_to 'Back', hafta_path %>

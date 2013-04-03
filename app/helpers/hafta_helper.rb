@@ -1,0 +1,2 @@
+module HaftaHelper
+end
