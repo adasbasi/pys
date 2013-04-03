@@ -1,4 +1,7 @@
 Pys::Application.routes.draw do
+  resources :hafta
+
+
   match "/odeme" => "odeme#index"
   
   root to: "yonetim#index"
