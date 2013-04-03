@@ -1,0 +1,27 @@
+<h1>Listing koordinators</h1>
+
+<table>
+  <tr>
+    <th>Uzem</th>
+    <th>Akademik</th>
+    <th>Enstitu</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @koordinators.each do |koordinator| %>
+  <tr>
+    <td><%= koordinator.uzem %></td>
+    <td><%= koordinator.akademik %></td>
+    <td><%= koordinator.enstitu %></td>
+    <td><%= link_to 'Show', koordinator %></td>
+    <td><%= link_to 'Edit', edit_koordinator_path(koordinator) %></td>
+    <td><%= link_to 'Destroy', koordinator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Koordinator', new_koordinator_path %>

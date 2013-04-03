@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Uzem:</b>
+  <%= @koordinator.uzem %>
+</p>
+
+<p>
+  <b>Akademik:</b>
+  <%= @koordinator.akademik %>
+</p>
+
+<p>
+  <b>Enstitu:</b>
+  <%= @koordinator.enstitu %>
+</p>
+
+
+<%= link_to 'Edit', edit_koordinator_path(@koordinator) %> |
+<%= link_to 'Back', koordinators_path %>

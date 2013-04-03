@@ -1,4 +1,7 @@
 Pys::Application.routes.draw do
+  resources :koordinators
+
+
   resources :programs
 
 
