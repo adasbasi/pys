@@ -1,8 +1,9 @@
 Pys::Application.routes.draw do
   match "/odeme" => "odeme#index"
-
+  
   root to: "yonetim#index"
-
+  match "/hakkimizda" => "yonetim#hakkimizda"
+  match "/iletisim" => "yonetim#iletisim"
   resources :hocas
   resources :ders
   resources :koordinators
