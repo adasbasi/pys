@@ -1,5 +1,5 @@
 Pys::Application.routes.draw do
-  get "odeme/index"
+  match "/odeme" => "odeme#index"
 
   root to: "yonetim#index"
 
