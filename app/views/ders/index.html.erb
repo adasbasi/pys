@@ -1,0 +1,27 @@
+<h1>Listing ders</h1>
+
+<table>
+  <tr>
+    <th>Ad</th>
+    <th>Kredi</th>
+    <th>Sube</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ders.each do |der| %>
+  <tr>
+    <td><%= der.ad %></td>
+    <td><%= der.kredi %></td>
+    <td><%= der.sube %></td>
+    <td><%= link_to 'Show', der %></td>
+    <td><%= link_to 'Edit', edit_der_path(der) %></td>
+    <td><%= link_to 'Destroy', der, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Der', new_der_path %>

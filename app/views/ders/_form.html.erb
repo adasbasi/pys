@@ -1,0 +1,29 @@
+<%= form_for(@der) do |f| %>
+  <% if @der.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@der.errors.count, "error") %> prohibited this der from being saved:</h2>
+
+      <ul>
+      <% @der.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ad %><br />
+    <%= f.text_field :ad %>
+  </div>
+  <div class="field">
+    <%= f.label :kredi %><br />
+    <%= f.text_field :kredi %>
+  </div>
+  <div class="field">
+    <%= f.label :sube %><br />
+    <%= f.text_field :sube %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
