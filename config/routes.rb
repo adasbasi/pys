@@ -1,15 +1,11 @@
 Pys::Application.routes.draw do
-  get "yonetim/index"
+  get "odeme/index"
+
+  root to: "yonetim#index"
 
   resources :hocas
-
-
   resources :ders
-
-
   resources :koordinators
-
-
   resources :programs
 
 

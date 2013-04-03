@@ -1,0 +1,2 @@
+module OdemeHelper
+end
