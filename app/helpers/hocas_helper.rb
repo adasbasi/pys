@@ -1,0 +1,2 @@
+module HocasHelper
+end
