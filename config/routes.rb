@@ -1,4 +1,6 @@
 Pys::Application.routes.draw do
+  get "yonetim/index"
+
   resources :hocas
 
 
