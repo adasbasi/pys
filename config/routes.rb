@@ -1,4 +1,6 @@
 Pys::Application.routes.draw do
+  root to: "otomasyon#index"
+
   get "odeme/index"
 
   namespace :odeme do

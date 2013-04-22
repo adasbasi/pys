@@ -1,0 +1,2 @@
+module OtomasyonHelper
+end
