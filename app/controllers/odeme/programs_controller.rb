@@ -1,5 +1,4 @@
 class Odeme::ProgramsController < ApplicationController
-  layout "odeme"
   # GET /odeme/programs
   # GET /odeme/programs.json
   def index
