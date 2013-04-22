@@ -1,7 +1,7 @@
 Pys::Application.routes.draw do
   root to: "otomasyon#index"
 
-  get "odeme/index"
+  match "odeme/" => "odeme#index"
 
   namespace :odeme do
     resources :programs
