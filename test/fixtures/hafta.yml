@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  tarih: 2013-04-04
-  durum: false
-
-two:
-  tarih: 2013-04-04
-  durum: false
