@@ -1,4 +1,6 @@
 Pys::Application.routes.draw do
+  devise_for :users
+
   root to: "otomasyon#index"
 
   match "odeme/" => "odeme#index"
