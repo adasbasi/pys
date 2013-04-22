@@ -10,20 +10,25 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :ad %><br />
-    <%= f.text_field :ad %>
-  </div>
-  <div class="field">
-    <%= f.label :donem %><br />
-    <%= f.date_select :donem %>
-  </div>
-  <div class="field">
-    <%= f.label :katsayi %><br />
-    <%= f.text_field :katsayi %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <table class="table table-striped">
+    <tr>
+      <td>
+        <%= f.label :ad, "Program Adı" %><br />
+        <%= f.text_field :ad %>
+      </td>
+      <td>
+        <%= f.label "Dönem" %><br />
+        <%= f.date_select :donem %>
+      </td>
+      <td>
+        <%= f.label "Katsayı" %><br />
+        <%= f.text_field :katsayi %>
+      </td>
+      <td>
+        <div class="actions">
+        <%= f.submit %>
+      </td>
+    </tr>
+  </table>
+  <hr>
 <% end %>
