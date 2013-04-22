@@ -1,0 +1,27 @@
+<h1>Listing odeme_programs</h1>
+
+<table>
+  <tr>
+    <th>Ad</th>
+    <th>Donem</th>
+    <th>Katsayi</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @odeme_programs.each do |odeme_program| %>
+  <tr>
+    <td><%= odeme_program.ad %></td>
+    <td><%= odeme_program.donem %></td>
+    <td><%= odeme_program.katsayi %></td>
+    <td><%= link_to 'Show', odeme_program %></td>
+    <td><%= link_to 'Edit', edit_odeme_program_path(odeme_program) %></td>
+    <td><%= link_to 'Destroy', odeme_program, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Program', new_odeme_program_path %>

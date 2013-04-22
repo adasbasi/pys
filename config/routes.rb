@@ -1,4 +1,11 @@
 Pys::Application.routes.draw do
+  get "odeme/index"
+
+  namespace :odeme do
+    resources :programs
+  end
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

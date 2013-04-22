@@ -1,0 +1,29 @@
+<%= form_for(@odeme_program) do |f| %>
+  <% if @odeme_program.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@odeme_program.errors.count, "error") %> prohibited this odeme_program from being saved:</h2>
+
+      <ul>
+      <% @odeme_program.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ad %><br />
+    <%= f.text_field :ad %>
+  </div>
+  <div class="field">
+    <%= f.label :donem %><br />
+    <%= f.date_select :donem %>
+  </div>
+  <div class="field">
+    <%= f.label :katsayi %><br />
+    <%= f.text_field :katsayi %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
