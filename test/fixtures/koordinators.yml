@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  kurum: MyString
+  akademik: MyString
+  enstitu: MyString
+
+two:
+  kurum: MyString
+  akademik: MyString
+  enstitu: MyString
