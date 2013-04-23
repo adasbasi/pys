@@ -6,7 +6,10 @@ Pys::Application.routes.draw do
   match "odeme/" => "odeme#index"
 
   namespace :odeme do
-    resources :programs
+    resources :programs do
+      resources :koordinators
+      resources :lectures
+    end
   end
 
 

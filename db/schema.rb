@@ -11,7 +11,43 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422160045) do
+ActiveRecord::Schema.define(:version => 20130423221944) do
+
+  create_table "ders", :force => true do |t|
+    t.string   "ad"
+    t.string   "kredi"
+    t.string   "sube"
+    t.integer  "odeme_program_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "program_id"
+  end
+
+  add_index "ders", ["odeme_program_id"], :name => "index_ders_on_odeme_program_id"
+
+  create_table "koordinators", :force => true do |t|
+    t.string   "kurum"
+    t.string   "akademik"
+    t.string   "enstitu"
+    t.integer  "odeme_program_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "program_id"
+  end
+
+  add_index "koordinators", ["odeme_program_id"], :name => "index_koordinators_on_odeme_program_id"
+
+  create_table "lectures", :force => true do |t|
+    t.string   "ad"
+    t.string   "kredi"
+    t.string   "sube"
+    t.integer  "odeme_program_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "program_id"
+  end
+
+  add_index "lectures", ["odeme_program_id"], :name => "index_lectures_on_odeme_program_id"
 
   create_table "odeme_programs", :force => true do |t|
     t.string   "ad"
