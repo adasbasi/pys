@@ -1,3 +1,12 @@
+<% content_for :menu do %>
+  <ul class="nav nav-list">
+    <li class="nav-header">İşlemler</li>
+    <li><%= link_to "Programlar", odeme_programs_path %></li>
+    <li><%= link_to "Program Ekle", new_odeme_program_path %></li>
+    <li><%= link_to "Akademisyen", odeme_akademists_path %></li>
+  </ul>
+<% end %>
+
 <%= form_for(@odeme_akademist) do |f| %>
   <% if @odeme_akademist.errors.any? %>
     <div id="error_explanation">

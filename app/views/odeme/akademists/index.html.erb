@@ -1,4 +1,14 @@
-<h1>Listing odeme_akademists</h1>
+<% content_for :menu do %>
+  <ul class="nav nav-list">
+    <li class="nav-header">İşlemler</li>
+    <li><%= link_to "Programlar", odeme_programs_path %></li>
+    <li><%= link_to "Program Ekle", new_odeme_program_path %></li>
+    <li><%= link_to "Akademisyen", odeme_akademists_path %></li>
+  </ul>
+<% end %>
+
+<h4>Akademik Personel</h4>
+<%= link_to 'New Akademist', new_odeme_akademist_path, class:"btn" %>
 
 <table>
   <tr>
