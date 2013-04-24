@@ -1,0 +1,29 @@
+<h1>Listing odeme_akademists</h1>
+
+<table>
+  <tr>
+    <th>Ad</th>
+    <th>Soyad</th>
+    <th>Unvan</th>
+    <th>Lecture</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @odeme_akademists.each do |odeme_akademist| %>
+  <tr>
+    <td><%= odeme_akademist.ad %></td>
+    <td><%= odeme_akademist.soyad %></td>
+    <td><%= odeme_akademist.unvan %></td>
+    <td><%= odeme_akademist.lecture %></td>
+    <td><%= link_to 'Show', odeme_akademist %></td>
+    <td><%= link_to 'Edit', edit_odeme_akademist_path(odeme_akademist) %></td>
+    <td><%= link_to 'Destroy', odeme_akademist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Akademist', new_odeme_akademist_path %>

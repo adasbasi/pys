@@ -1,0 +1,33 @@
+<%= form_for(@odeme_akademist) do |f| %>
+  <% if @odeme_akademist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@odeme_akademist.errors.count, "error") %> prohibited this odeme_akademist from being saved:</h2>
+
+      <ul>
+      <% @odeme_akademist.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ad %><br />
+    <%= f.text_field :ad %>
+  </div>
+  <div class="field">
+    <%= f.label :soyad %><br />
+    <%= f.text_field :soyad %>
+  </div>
+  <div class="field">
+    <%= f.label :unvan %><br />
+    <%= f.text_field :unvan %>
+  </div>
+  <div class="field">
+    <%= f.label :lecture %><br />
+    <%= f.text_field :lecture %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

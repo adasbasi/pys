@@ -1,4 +1,9 @@
 Pys::Application.routes.draw do
+  namespace :odeme do
+    resources :akademists
+  end
+
+
   devise_for :users
 
   root to: "otomasyon#index"

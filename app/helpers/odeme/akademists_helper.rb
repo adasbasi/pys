@@ -1,0 +1,2 @@
+module Odeme::AkademistsHelper
+end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423221944) do
+ActiveRecord::Schema.define(:version => 20130424073503) do
 
   create_table "ders", :force => true do |t|
     t.string   "ad"
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(:version => 20130423221944) do
   end
 
   add_index "lectures", ["odeme_program_id"], :name => "index_lectures_on_odeme_program_id"
+
+  create_table "odeme_akademists", :force => true do |t|
+    t.string   "ad"
+    t.string   "soyad"
+    t.string   "unvan"
+    t.integer  "lecture_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "odeme_akademists", ["lecture_id"], :name => "index_odeme_akademists_on_lecture_id"
 
   create_table "odeme_programs", :force => true do |t|
     t.string   "ad"
