@@ -8,11 +8,9 @@
 <% end %>
 
 <h4>Programlar</h4>
-<%= link_to 'Yeni Program', new_odeme_program_path, class:"btn" %>
-<br />
-<br />
 <table class="table table-hover">
   <tr>
+    <th></th>
     <th>Ad</th>
     <th>Donem</th>
     <th>Katsayi</th>
@@ -21,8 +19,9 @@
     <th></th>
   </tr>
 
-<% @odeme_programs.each do |odeme_program| %>
+<% @odeme_programs.each_with_index do |odeme_program,i| %>
   <tr>
+    <td><%= i+1 %></td>
     <td><%= odeme_program.ad %></td>
     <td><%= odeme_program.donem %></td>
     <td><%= odeme_program.katsayi %></td>
