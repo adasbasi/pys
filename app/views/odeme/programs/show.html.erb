@@ -9,56 +9,90 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Ad:</b>
-  <%= @odeme_program.ad %>
-</p>
+<div class="accordion" id="accordion2">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+        Program Bilgileri
+      </a>
+    </div>
+    <div id="collapseThree" class="accordion-body collapse in">
+      <div class="accordion-inner">
+	<p>
+	  <b>Ad:</b>
+	  <%= @odeme_program.ad %>
+	</p>
 
-<p>
-  <b>Donem:</b>
-  <%= @odeme_program.donem %>
-</p>
+	<p>
+	  <b>Donem:</b>
+	  <%= @odeme_program.donem %>
+	</p>
 
-<p>
-  <b>Katsayi:</b>
-  <%= @odeme_program.katsayi %>
-</p>
+	<p>
+	  <b>Katsayi:</b>
+	  <%= @odeme_program.katsayi %>
+	</p>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+        Koordinatör Ekleyin
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <%= form_for([@odeme_program, @odeme_program.koordinators.build]) do |f| %>
+          <table class="table table-striped">
+            <tr>
+              <td>
+                <%= f.label :kurum %><br />
+                <%= f.text_field :kurum %>
+              </td>
+              <td>
+                <%= f.label :akademik %><br />
+                <%= f.text_field :akademik %>
+              </td>
+              <td>
+                <%= f.label :enstitu %><br />
+                <%= f.text_field :enstitu %>
+              </td>
+            </tr>
+          </table>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+        Ders Ekleyin
+      </a>
+    </div>
+    <div id="collapseTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <%= form_for([@odeme_program, @odeme_program.lectures.build]) do |f| %>
+          <div class="field">
+            <%= f.label :ad %><br />
+            <%= f.text_field :ad %>
+          </div>
+          <div class="field">
+            <%= f.label :kredi %><br />
+            <%= f.text_field :kredi %>
+          </div>
+          <div class="field">
+            <%= f.label :sube %><br />
+            <%= f.text_field :sube %>
+          </div>
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= form_for([@odeme_program, @odeme_program.koordinators.build]) do |f| %>
-  <div class="field">
-    <%= f.label :kurum %><br />
-    <%= f.text_field :kurum %>
-  </div>
-  <div class="field">
-    <%= f.label :akademik %><br />
-    <%= f.text_field :akademik %>
-  </div>
-  <div class="field">
-    <%= f.label :enstitu %><br />
-    <%= f.text_field :enstitu %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-<%= form_for([@odeme_program, @odeme_program.lectures.build]) do |f| %>
-  <div class="field">
-    <%= f.label :ad %><br />
-    <%= f.text_field :ad %>
-  </div>
-  <div class="field">
-    <%= f.label :kredi %><br />
-    <%= f.text_field :kredi %>
-  </div>
-  <div class="field">
-    <%= f.label :sube %><br />
-    <%= f.text_field :sube %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-<%= link_to 'Edit', edit_odeme_program_path(@odeme_program) %> |
-<%= link_to 'Back', odeme_programs_path %>
+<%= link_to 'Geri Dön', odeme_programs_path %>
