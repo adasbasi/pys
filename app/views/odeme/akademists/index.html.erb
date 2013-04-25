@@ -4,19 +4,19 @@
     <li><%= link_to "Programlar", odeme_programs_path %></li>
     <li><%= link_to "Program Ekle", new_odeme_program_path %></li>
     <li><%= link_to "Akademisyen", odeme_akademists_path %></li>
+    <li><%= link_to "Akademisyen Ekle", new_odeme_akademist_path %></li>
   </ul>
 <% end %>
 
 <h4>Akademik Personel</h4>
-<%= link_to 'New Akademist', new_odeme_akademist_path, class:"btn" %>
-<br />
-<br />
 <table class="table table-hover">
   <tr>
     <th></th>
     <th>Ad</th>
     <th>Soyad</th>
     <th>Unvan</th>
+    <th>Katsayı</th>
+    <th>Ödenecek Miktar</th>
     <th></th>
     <th></th>
   </tr>
@@ -27,6 +27,8 @@
     <td><%= odeme_akademist.ad %></td>
     <td><%= odeme_akademist.soyad %></td>
     <td><%= odeme_akademist.unvan %></td>
+    <td></td>
+    <td></td>
     <td><%= link_to 'Show', odeme_akademist %></td>
     <td><%= link_to 'Edit', edit_odeme_akademist_path(odeme_akademist) %></td>
   </tr>

@@ -4,6 +4,7 @@
     <li><%= link_to "Programlar", odeme_programs_path %></li>
     <li><%= link_to "Program Ekle", new_odeme_program_path %></li>
     <li><%= link_to "Akademisyen", odeme_akademists_path %></li>
+    <li><%= link_to "Akademisyen Ekle", new_odeme_akademist_path %></li>
   </ul>
 <% end %>
 
@@ -25,9 +26,9 @@
     <td><%= odeme_program.ad %></td>
     <td><%= odeme_program.donem %></td>
     <td><%= odeme_program.katsayi %></td>
-    <td><%= link_to 'Show', odeme_program %></td>
-    <td><%= link_to 'Edit', edit_odeme_program_path(odeme_program) %></td>
-    <td><%= link_to 'Destroy', odeme_program, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Ders ve Koordinator Ekleyin', odeme_program %></td>
+    <td><%= link_to 'Program Bilgilerini Düzenleyin', edit_odeme_program_path(odeme_program) %></td>
+    <td><%= link_to 'Programı Silin', odeme_program, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
