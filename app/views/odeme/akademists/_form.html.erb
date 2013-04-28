@@ -27,7 +27,7 @@
 </style>
 <% end %>
 <% content_for :menu do %>
-  <ul class="nav nav-list">
+  <ul class="nav nav-list extramenu">
     <li class="nav-header">İşlemler</li>
     <li><%= link_to "Programlar", odeme_programs_path %></li>
     <li><%= link_to "Program Ekle", new_odeme_program_path %></li>
@@ -49,7 +49,7 @@
     </div>
   <% end %>
 
-<button id="open-wizard" class="btn btn-primary">Program Ekleyin</button>
+<button id="open-wizard" class="btn btn-primary">Akademisyen Ekleyin</button>
 <div class="wizard" id="wizard-demo">
 
   <h1>Akademisyen Hakkında</h1>
