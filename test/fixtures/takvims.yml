@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tarih: 2013-04-30
+  islem: false
+  lecture: 
+  akademist: 
+
+two:
+  tarih: 2013-04-30
+  islem: false
+  lecture: 
+  akademist: 
