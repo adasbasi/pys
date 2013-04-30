@@ -13,7 +13,20 @@ class Odeme::AkademistsController < ApplicationController
   # GET /odeme/akademists/1
   # GET /odeme/akademists/1.json
   def show
+    @tarih = Takvim.all
+
+    # yeni dizi
+    @week = Array.new
+
+    # derslerin işlenip işlenmemesi
+    @tarih.each_with_index do |f,i|
+      @week << [f.tarih, f.islem]
+    end
+
+    # tarihin belirlenmesi
     @date = params[:month] ? Date.parse(params[:month]) : Date.today
+
+    # var olan kodlar
     @odeme_akademist = Odeme::Akademist.find(params[:id])
 
     respond_to do |format|

@@ -1,6 +1,8 @@
 Pys::Application.routes.draw do
   namespace :odeme do
-    resources :akademists
+    resources :akademists do
+      resources :takvims
+    end
   end
 
 

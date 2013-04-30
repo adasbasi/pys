@@ -1,3 +1,50 @@
+<% content_for :script do %>
+  <script>
+	$(document).ready(function() {
+
+		var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
+
+		$('#calendar').fullCalendar({
+			theme: true,
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+                              },
+			editable: true,
+                        events: [
+			        {
+					title: 'https://www.google.com/calendar/render?tab=wc&pli=1&gsessionid=jEusufXhS1dhXkTghzURNw',
+                                        color: 'yellow',   // an option!
+                                        textColor: 'black' // an option!
+                                }
+			]
+		});
+	});
+
+  </script>
+<% end %>
+
+<% content_for :css do %>
+  <style>
+
+	body {
+		margin-top: 10px;
+		font-size: 13px;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+		}
+
+	#calendar {
+		width: 900px;
+		margin: 0 auto;
+		}
+
+  </style>
+<% end %>
+
 <% content_for :menu do %>
   <ul class="nav nav-list">
     <li class="nav-header">İşlemler</li>
@@ -9,26 +56,35 @@
 <% end %>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Ad:</b>
-  <%= @odeme_akademist.ad %>
-</p>
+<table class="table table-striped">
+  <tr>
+    <th>Ad</th>
+    <td><%= @odeme_akademist.ad %></td>
+  </tr>
+  <tr>
+    <th>Soyad:</th>
+    <td><%= @odeme_akademist.soyad %></td>
+  </tr>
+  <tr>
+    <th>Ünvan:</th>
+    <td><%= @odeme_akademist.unvan %></td>
+  </tr>
+  <tr>
+    <th>Verdiği Ders:</th>
+    <td><%= @odeme_akademist.lecture %></td>
+  </tr>
+  <%= form_for([@odeme_akademist,@odeme_akademist.takvims.build]) do |f| %>
+    <tr>
+      <th>Ders Tarihi:</th>
+      <td><%= f.date_select :tarih %></td>
+    </tr>
+    <tr>
+      <th>Ders İşleme Durumu:</th>
+      <td><%= f.check_box :islem %></td>
+      <td><%= f.submit %></td>
+    </tr>
+  <% end %>
+</table>
 
-<p>
-  <b>Soyad:</b>
-  <%= @odeme_akademist.soyad %>
-</p>
-
-<p>
-  <b>Unvan:</b>
-  <%= @odeme_akademist.unvan %>
-</p>
-
-<p>
-  <b>Lecture:</b>
-  <%= @odeme_akademist.lecture %>
-</p>
-
-
-<%= link_to 'Edit', edit_odeme_akademist_path(@odeme_akademist) %> |
-<%= link_to 'Back', odeme_akademists_path %>
+<div id='calendar'></div>
+<%= @week %>
