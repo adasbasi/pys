@@ -13,6 +13,7 @@ class Odeme::AkademistsController < ApplicationController
   # GET /odeme/akademists/1
   # GET /odeme/akademists/1.json
   def show
+    @date = params[:month] ? Date.parse(params[:month]) : Date.today
     @odeme_akademist = Odeme::Akademist.find(params[:id])
 
     respond_to do |format|

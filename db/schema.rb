@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424073503) do
+ActiveRecord::Schema.define(:version => 20130430092404) do
 
   create_table "koordinators", :force => true do |t|
     t.string   "kurum"
@@ -55,6 +55,18 @@ ActiveRecord::Schema.define(:version => 20130424073503) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "takvims", :force => true do |t|
+    t.date     "tarih"
+    t.boolean  "islem"
+    t.integer  "lecture_id"
+    t.integer  "akademist_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "takvims", ["akademist_id"], :name => "index_takvims_on_akademist_id"
+  add_index "takvims", ["lecture_id"], :name => "index_takvims_on_lecture_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

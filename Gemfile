@@ -9,7 +9,7 @@ gem 'sqlite3'
 gem 'therubyracer'
 gem 'execjs'
 gem 'devise'
-gem "watu_table_builder", :require => "table_builder"
+
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
