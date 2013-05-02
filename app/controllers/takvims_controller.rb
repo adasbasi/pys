@@ -1,5 +1,8 @@
 # encoding:utf-8
 class TakvimsController < ApplicationController
+  def index
+    @takvims = Takvim.all
+  end
   def create
     @akademisyen = Odeme::Akademist.find(params[:akademist_id])
     @tarih = @akademisyen.takvims.create(params[:takvim])

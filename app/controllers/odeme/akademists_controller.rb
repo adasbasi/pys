@@ -20,7 +20,7 @@ class Odeme::AkademistsController < ApplicationController
 
     # derslerin işlenip işlenmemesi
     @tarih.each_with_index do |f,i|
-      @week << [f.tarih, f.islem]
+      @week << {"title:" => f.islem, "start:" => f.tarih}
     end
 
     # tarihin belirlenmesi
