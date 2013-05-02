@@ -1,4 +1,9 @@
+<div class="konum1">
+<div class="konum2">
+<div class="back-unit">
+
 <h2>Sign up</h2>
+<br />
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -12,7 +17,10 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.submit "Sign up" %></div>
+  <div><%= f.submit "Sign up", :class => 'btn btn-primary' %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+</div>
+</div>

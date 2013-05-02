@@ -11,6 +11,9 @@
  *= require_self
  *= require_tree .
  */
+
+@import "giris.css";
+
 .downs{
 padding-top:20px;
 padding-left:10px;
