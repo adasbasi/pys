@@ -67,3 +67,15 @@ div {
     list-style: square;
   }
 }
+/*Buton veritabnları için _form "yenile" clasına dahil edildi eklendi*/
+a.yenile {
+  color: #000;
+  &:visited {
+    color: #fff;
+  }
+  &:hover {
+    color: #fff;
+    
+  }
+}
+
