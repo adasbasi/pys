@@ -1,4 +1,6 @@
 Pys::Application.routes.draw do
+  match "odeme/" => "odeme#index"
+  match "odeme/akademists/hesapla" => "odeme#hesapla"
   namespace :odeme do
     resources :akademists do
       resources :takvims
@@ -8,8 +10,6 @@ Pys::Application.routes.draw do
   devise_for :users
 
   root to: "otomasyon#index"
-
-  match "odeme/" => "odeme#index"
 
   namespace :odeme do
     resources :programs do

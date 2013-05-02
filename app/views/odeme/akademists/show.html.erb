@@ -55,6 +55,7 @@
 <% end %>
 <p id="notice"><%= notice %></p>
 
+<% @unvan = { 2 =>'Dr.', 3 =>'Yrd.Doc.Dr.', 4 => 'Doc.', 5 => 'Prof.'} %>
 <table class="table table-striped">
   <tr>
     <th>Ad</th>
@@ -66,11 +67,11 @@
   </tr>
   <tr>
     <th>Ünvan:</th>
-    <td><%= @odeme_akademist.unvan %></td>
+    <td><%= @unvan[@odeme_akademist.unvan.to_i] %></td>
   </tr>
   <tr>
     <th>Verdiği Ders:</th>
-    <td><%= @odeme_akademist.lecture %></td>
+    <td><%= @odeme_akademist.lecture.ad %></td>
   </tr>
   <%= form_for([@odeme_akademist,@odeme_akademist.takvims.build]) do |f| %>
     <tr>

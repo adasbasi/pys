@@ -67,30 +67,26 @@
     <h3>Akademik Personel Ad</h3>
     <div class="wizard-input-section">
       <p>
-	Akademik personelin adını giriniz.
+	Akademik personelin adını ve soyadını giriniz.
       </p>
       <div class="control-group">
-	<%= f.text_field :ad, placeholder:"Akademisyen Adı" %><!-- id new-server-fqdn -->
+        <%= f.text_field :ad, placeholder:"Akademisyen Adı" %><!-- id new-server-fqdn -->
+        <%= f.text_field :soyad, placeholder:"Soyadı" %>
       </div>
     </div>
   </div>
 
   <div class="wizard-card" data-cardname="services">
-    <h3>Akademik Personel</h3>
+    <h3>Akademik Personel Ünvanı</h3>
     <div class="wizard-input-section">
       <p>
-         Program dönemini seçiniz ve katsayısını giriniz.
+         Aşağıdaki listeden akademisyen ünvanını seçiniz.
       </p>
       <div class="control-group">
         <table>
 	  <tr>
 	    <td>
-              <%= f.label :soyad %>
-              <%= f.text_field :soyad %>
-	    </td>
-	    <td>
-              <%= f.label :unvan %>
-              <%= f.text_field :unvan %>
+              <%= f.select(:unvan, options_for_select([["Dr.",2],["Yrd. Doc. Dr.",3],["Doc.",4],["Prof",5]])) %>
             </td>
           </tr>
         </table>
@@ -98,10 +94,29 @@
     </div>
   </div>
   <div class="wizard-card">
+    <h3>Verdiği Dersler</h3>
+    <div class="wizard-input-section">
+      <p>
+        Aşağıdaki listeden akademik personelin verdiği dersleri seçin.
+      </p>
+      <div class="control-group">
+        <%= f.select(:lecture_id, options_from_collection_for_select(Lecture.all, :id, :ad)) %>
+      </div>
+    </div>
+  </div>
+  <div class="wizard-card">
     <h3>Kontrol</h3>
     <div class="wizard-input-section">
       <p>
-	 Lütfen girilen bilgileri kontrol ediniz.
+        Lütfen girilen bilgileri kontrol ediniz.
+        <table class="table table-striped">
+          <tr>
+            <th>Akademisyen Adı ve Soyadı:</th>
+            <th>Ünvan:</th>
+          </tr>
+          <td>
+          </td>
+        </table>
       </p>
     </div>
   </div>
@@ -118,7 +133,7 @@
   </div>
   <div class="wizard-success">
     <div class="alert alert-success">
-      <span class="create-server-name"></span> <strong>başarılı şekilde oluşturuldu.</strong>
+      <span class="create-server-name"></span> <strong>Akademisyen başarılı bir şekilde eklenmiştir.</strong>
     </div>
     <a class="btn create-another-server">Başka program ekleyin.</a>
     <span style="padding:0 10px">or</span>

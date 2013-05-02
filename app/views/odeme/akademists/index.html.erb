@@ -8,6 +8,8 @@
   </ul>
 <% end %>
 
+<% @unvan = { 2 =>'Dr.', 3 =>'Yrd.Doc.Dr.', 4 => 'Doc.', 5 => 'Prof.'} %>
+
 <h4>Akademik Personel</h4>
 <table class="table table-hover">
   <tr>
@@ -26,9 +28,9 @@
     <td><%= i+1 %></td>
     <td><%= odeme_akademist.ad %></td>
     <td><%= odeme_akademist.soyad %></td>
-    <td><%= odeme_akademist.unvan %></td>
-    <td></td>
-    <td></td>
+    <td><%= @unvan[odeme_akademist.unvan.to_i] %></td>
+    <td><%= @katsayi = odeme_akademist.unvan.to_i * Lecture.find(odeme_akademist.lecture_id).kredi.to_i %></td>
+    <td><%= @katsayi*100%></td>
     <td><%= link_to 'Akademisyen Bilgisini Görüntüle', odeme_akademist %></td>
     <td><%= link_to 'Akademisyen Bilgisini Düzenle', edit_odeme_akademist_path(odeme_akademist) %></td>
   </tr>
