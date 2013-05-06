@@ -48,3 +48,12 @@ color:#999;
      -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
           box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
 }
+.etiket{/*login ekranında yazı etiketler için örneğin 'Email'*/
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+}
+.button_position{/*kayıt ol sayfasında buton posisyonu*/
+margin-left:60px;
+
+}
