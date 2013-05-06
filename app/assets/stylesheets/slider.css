@@ -1,0 +1,22 @@
+.slide-position{
+  position:relative;
+  left:500;
+  top:-425px;
+}
+.carousel-inner{
+  position: relative;
+  left:425px;
+  top:10px;
+  height:300px;
+  width:700px;
+}
+.carousel-control.right {
+  position: absolute;
+  right: auto;
+  left: 900px;
+}
+.carousel-control.left {
+  position: absolute;
+  left: 350px;
+  right: auto;
+}

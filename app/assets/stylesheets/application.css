@@ -11,7 +11,7 @@
  *= require_self
  *= require_tree .
  */
-
+@import "slider.css";
 @import "giris.css";
 
 .downs{
