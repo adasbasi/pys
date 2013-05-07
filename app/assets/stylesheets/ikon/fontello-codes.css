@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+ 
+.icon-pencil:before { content: '\270e'; } /* '✎' */
+.icon-check:before { content: '\2713'; } /* '✓' */
+.icon-cancel:before { content: '\2715'; } /* '✕' */
+.icon-trash:before { content: '\e729'; } /* '' */
+.icon-folder-open:before { content: '\f068'; } /* '' */
+.icon-lamp:before { content: '💡'; } /* '\1f4a1' */
+.icon-attach:before { content: '📎'; } /* '\1f4ce' */

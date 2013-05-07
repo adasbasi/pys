@@ -15,9 +15,9 @@
     <th>Ad</th>
     <th>Donem</th>
     <th>Katsayi</th>
-    <th>Ders ve Koordinator Ekle</th>
-    <th>Program Bilgilerini Düzenle</th>
-    <th>Programı Silin</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
 
 <% @odeme_programs.each_with_index do |odeme_program,i| %>
@@ -26,9 +26,9 @@
     <td><%= odeme_program.ad %></td>
     <td><%= odeme_program.donem %></td>
     <td><%= odeme_program.katsayi %></td>
-    <td><%= link_to 'Ders ve Koordinator Ekleyin', odeme_program %></td>
-    <td><%= link_to 'Program Bilgilerini Düzenleyin', edit_odeme_program_path(odeme_program) %></td>
-    <td><%= link_to 'Programı Silin', odeme_program, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to '', odeme_program, :class => 'icon-check' %></td>
+    <td><%= link_to '', edit_odeme_program_path(odeme_program), :class => 'icon-pencil' %></td>
+    <td><%= link_to '', odeme_program, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-cancel' %></td>
   </tr>
 <% end %>
 </table>
