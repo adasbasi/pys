@@ -1,6 +1,6 @@
 Pys::Application.routes.draw do
   match "odeme/" => "odeme#index"
-  match "odeme/akademists/hesapla" => "odeme#hesapla"
+
   namespace :odeme do
     resources :akademists do
       resources :takvims

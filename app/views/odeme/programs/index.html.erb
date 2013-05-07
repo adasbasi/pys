@@ -1,3 +1,8 @@
+<script type="text/javascript">
+  $(function () {
+    $("[id='tool']").tooltip();
+  });
+</script>
 <% content_for :menu do %>
   <ul class="nav nav-list extramenu">
     <li class="nav-header">İşlemler</li>
@@ -27,9 +32,9 @@
     <td><%= odeme_program.ad %></td>
     <td><%= odeme_program.donem %></td>
     <td><%= odeme_program.katsayi %></td>
-    <td><%= link_to '', odeme_program, :class => 'icon-check', :title => "Göster" %></td>
-    <td><%= link_to '', edit_odeme_program_path(odeme_program), :class => 'icon-pencil', :title => "Düzenle" %></td>
-    <td><%= link_to '', odeme_program, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-cancel', :title => "Sil" %></td>
+    <td><%= link_to '', odeme_program, :class => 'icon-check', :title => "Göster", :id => "tool" %></td>
+    <td><%= link_to '', edit_odeme_program_path(odeme_program), :class => 'icon-pencil', :title => "Düzenle", :id => "tool" %></td>
+    <td><%= link_to '', odeme_program, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-cancel', :title => "Sil", :id => "tool" %></td>
   </tr>
 <% end %>
 </table>
