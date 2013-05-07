@@ -13,6 +13,7 @@
  */
 @import "slider.css";
 @import "giris.css";
+@import "footer.css";
 
 .downs{
 padding-top:20px;
@@ -24,11 +25,9 @@ padding-bottom:30px;
 padding-left:50px;
 padding-right:50px;
 }
-.footer{
-color:#999;
-}
+
 .extramenu{/* Yan menü için arka plan*/
-  margin-top:40px;
+  margin-top:35px;
   padding-top: 20px;
   padding-bottom: 20px;
   background-color: #fafafa;

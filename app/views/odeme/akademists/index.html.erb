@@ -31,8 +31,8 @@
     <td><%= @unvan[odeme_akademist.unvan.to_i] %></td>
     <td><%= @katsayi = odeme_akademist.unvan.to_i * Lecture.find(odeme_akademist.lecture_id).kredi.to_i %></td>
     <td><%= @katsayi*100%></td>
-    <td><%= link_to 'Akademisyen Bilgisini Görüntüle', odeme_akademist %></td>
-    <td><%= link_to 'Akademisyen Bilgisini Düzenle', edit_odeme_akademist_path(odeme_akademist) %></td>
+    <td><%= link_to '', odeme_akademist, :class => "icon-check" %></td>
+    <td><%= link_to '', edit_odeme_akademist_path(odeme_akademist), :class => "icon-pencil" %></td>
   </tr>
 <% end %>
 </table>

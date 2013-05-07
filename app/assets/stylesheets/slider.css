@@ -1,7 +1,7 @@
 .slide-position{
-  position:relative;
-  left:500;
-  top:-425px;
+  position:absolute;
+  left:200px;
+  top:150px;
 }
 .carousel-inner{
   position: relative;
