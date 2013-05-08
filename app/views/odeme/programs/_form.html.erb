@@ -86,7 +86,7 @@
 	  <tr>
 	    <td>
               <%= f.label :donem %>
-              <%= f.date_select :donem %>
+              <%= f.select(:donem, [['Yaz','Yaz'],['Güz','Güz'],['Bahar','Bahar']]) %>
 	    </td>
 	    <td>
               <%= f.label :katsayi %>
