@@ -7,7 +7,11 @@
     <li><%= link_to "Akademisyen Ekle", new_odeme_akademist_path %></li>
   </ul>
 <% end %>
-
+<script type="text/javascript">
+  $(function () {
+    $("[id='tool']").tooltip();
+  });
+</script>
 <% @unvan = { 2 =>'Dr.', 3 =>'Yrd.Doc.Dr.', 4 => 'Doc.', 5 => 'Prof.'} %>
 
 <h4>Akademik Personel</h4>
@@ -31,8 +35,8 @@
     <td><%= @unvan[odeme_akademist.unvan.to_i] %></td>
     <td><%= @katsayi = odeme_akademist.unvan.to_i * Lecture.find(odeme_akademist.lecture_id).kredi.to_i %></td>
     <td><%= @katsayi*100%></td>
-    <td><%= link_to '', odeme_akademist, :class => "icon-check" %></td>
-    <td><%= link_to '', edit_odeme_akademist_path(odeme_akademist), :class => "icon-pencil" %></td>
+    <td><%= link_to '', odeme_akademist, :class => "icon-check", :title => "Göster", :id => "tool"  %></td>
+    <td><%= link_to '', edit_odeme_akademist_path(odeme_akademist), :class => "icon-pencil", :title => "Düzenle", :id => "tool"  %></td>
   </tr>
 <% end %>
 </table>
