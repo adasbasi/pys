@@ -1,3 +1,8 @@
+<script type="text/javascript">
+  $(function () {
+    $("[id='tool']").tooltip();
+  });
+</script>
 <% content_for :menu do %>
   <ul class="nav nav-list extramenu">
     <li class="nav-header">İşlemler</li>
@@ -31,8 +36,8 @@
     <td><%= @unvan[odeme_akademist.unvan.to_i] %></td>
     <td><%= @katsayi = odeme_akademist.unvan.to_i * Lecture.find(odeme_akademist.lecture_id).kredi.to_i %></td>
     <td><%= @katsayi*100%></td>
-    <td><%= link_to '', odeme_akademist, :class => "icon-check" %></td>
-    <td><%= link_to '', edit_odeme_akademist_path(odeme_akademist), :class => "icon-pencil" %></td>
+    <td><%= link_to '', odeme_akademist, :class => "icon-check", :id => "tool", :title => "Akademisyen Bilgilerini Görüntüle" %></td>
+    <td><%= link_to '', edit_odeme_akademist_path(odeme_akademist), :class => "icon-pencil", :id => "tool", :title => "Akademisyen Bilgilerini Düzenle" %></td>
   </tr>
 <% end %>
 </table>
