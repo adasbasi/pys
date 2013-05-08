@@ -387,10 +387,10 @@
 			progressBarCurrent: false,
 			increaseHeight: 0,
 			buttons: {
-				nextText: "Next",
-				backText: "Back",
-				submitText: "Submit",
-				submittingText: "Submitting...",
+				nextText: "İleri",
+				backText: "Geri",
+				submitText: "Kaydet",
+				submittingText: "Kaydediliyor...",
 			}
 		};
 		$.extend(this.args, args || {});
