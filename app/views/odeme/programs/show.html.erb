@@ -77,20 +77,18 @@
     </div>
     <div id="collapseOne" class="accordion-body collapse">
       <div class="accordion-inner">
+        <p>Lütfen aşağıdaki boş alanları doldurunuz.</p>
         <%= form_for([@odeme_program, @odeme_program.koordinators.build]) do |f| %>
           <table class="table table-striped">
             <tr>
               <td>
-                <%= f.label :kurum %><br />
-                <%= f.text_field :kurum %>
+                <%= f.text_field :kurum, placeholder: "Kurum Koordinatörü" %>
               </td>
               <td>
-                <%= f.label :akademik %><br />
-                <%= f.text_field :akademik %>
+                <%= f.text_field :akademik, placeholder: "Akademik Koordinatör" %>
               </td>
               <td>
-                <%= f.label :enstitu %><br />
-                <%= f.text_field :enstitu %>
+                <%= f.text_field :enstitu, placeholder: "Enstitü Koordinatörü" %>
               </td>
             </tr>
           </table>
@@ -107,24 +105,26 @@
     </div>
     <div id="collapseTwo" class="accordion-body collapse">
       <div class="accordion-inner">
-        <%= form_for([@odeme_program, @odeme_program.lectures.build]) do |f| %>
+        <h6>Formu doldularak ders ekleyin</h6>
+        <p>Lütfen aşağıdaki boş alanları doldurunuz.</p>
+        <%= form_for([@odeme_program, @odeme_program.lectures.build], multipart: true) do |f| %>
           <table class="table table-striped">
             <tr>
               <td>
-                <%= f.label :ad %><br />
-                <%= f.text_field :ad %>
+                <%= f.text_field :ad, placeholder:"Ad" %>
               </td>
               <td>
-                <%= f.label :kredi %><br />
-                <%= f.text_field :kredi %>
+                <%= f.text_field :kredi, placeholder:"Kredi" %>
               </td>
               <td>
-                <%= f.label :sube %><br />
-                <%= f.text_field :sube %>
+                <%= f.text_field :sube, placeholder: "Şube" %>
               </td>
             </tr>
           </table>
-          <%= f.submit %>
+          <hr />
+          <h6>CSV dosyası ile ders ekleyin</h6>
+          <%= file_field_tag :file%>
+          <%= f.submit class: "btn" %>
         <% end %>
       </div>
     </div>

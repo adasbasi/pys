@@ -1,6 +1,7 @@
 # encoding: utf-8
 class LecturesController < ApplicationController
   def create
+    Lecture.import(params[:file])
     @odeme_program = Odeme::Program.find(params[:program_id])
     @lecture = @odeme_program.lectures.create(params[:lecture])
     if @lecture.save
