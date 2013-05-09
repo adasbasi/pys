@@ -6,15 +6,15 @@
 <% content_for :menu do %>
   <ul class="nav nav-list extramenu">
     <li class="nav-header">İşlemler</li>
-    <li><%= link_to "Programlar", odeme_programs_path %></li>
     <li><%= link_to "Akademisyen", odeme_akademists_path %></li>
-    <li><%= link_to "Akademisyen Ekle", new_odeme_akademist_path %></li>
+    <li><%= link_to "Program", odeme_programs_path %></li>
   </ul>
 <% end %>
 
 <% @unvan = { 2 =>'Dr.', 3 =>'Yrd.Doc.Dr.', 4 => 'Doc.', 5 => 'Prof.'} %>
 
-<h4>Akademik Personel</h4>
+<h4 class="pull-left">Akademik Personel</h4><br />
+<p class="pull-right"><%= link_to "Akademisyen Ekle", new_odeme_akademist_path %></p>
 <table class="table table-hover">
   <tr>
     <th></th>
