@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130509085744) do
+ActiveRecord::Schema.define(:version => 20130509113519) do
+
+  create_table "aprograms", :force => true do |t|
+    t.date     "donem"
+    t.integer  "katsayi"
+    t.integer  "program_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "aprograms", ["program_id"], :name => "index_aprograms_on_program_id"
 
   create_table "koordinators", :force => true do |t|
     t.string   "kurum"

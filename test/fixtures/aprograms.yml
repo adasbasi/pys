@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  donem: 2013-05-09
+  katsayi: 1
+  program: 
+
+two:
+  donem: 2013-05-09
+  katsayi: 1
+  program: 

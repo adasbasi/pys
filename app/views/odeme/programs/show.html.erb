@@ -3,6 +3,8 @@
     <li class="nav-header">İşlemler</li>
     <li><%= link_to "Akademisyen", odeme_akademists_path %></li>
     <li><%= link_to "Programlar", odeme_programs_path %></li>
+    <li class="divider"></li>
+    <li></li>
   </ul>
 <% end %>
 
@@ -123,6 +125,19 @@
         <% end %>
       </div>
     </div>
+    <%= form_for([@odeme_program, @odeme_program.aprograms.build], multipart: true) do |f| %>
+          <table class="table table-striped">
+            <tr>
+              <td>
+              <%= select_year Date.today, :start_year => Time.now.year, :end_year => 2023, :field_name => :donem, :prefix => :profile %>
+              </td>
+              <td>
+                <%= f.text_field :katsayi, placeholder:"Kredi" %>
+              </td>
+            </tr>
+          </table>
+          <%= f.submit class: "btn" %>
+    <% end %>
   </div>
 </div>
 

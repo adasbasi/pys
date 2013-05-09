@@ -13,6 +13,7 @@ Pys::Application.routes.draw do
 
   namespace :odeme do
     resources :programs do
+      resources :aprograms
       resources :koordinators
       resources :lectures
       end

@@ -31,6 +31,7 @@
     <li class="nav-header">İşlemler</li>
     <li><%= link_to "Akademisyen", odeme_akademists_path %></li>
     <li><%= link_to "Programlar", odeme_programs_path %></li>
+    <li class="divider"></li>
   </ul>
 <% end %>
 
@@ -70,6 +71,8 @@
       <div class="control-group">
         <%= f.text_field :ad, placeholder:"Akademisyen Adı" %><!-- id new-server-fqdn -->
         <%= f.text_field :soyad, placeholder:"Soyadı" %>
+        <%= select_year(2000, :start_year => 2000, :end_year => 2010) %>
+        <%= time_select("article", "written_on", :prompt => {:hour => 'Choose hour', :minute => 'Choose minute', :second => 'Choose seconds'})%>
       </div>
     </div>
   </div>
