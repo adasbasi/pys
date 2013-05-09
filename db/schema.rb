@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130508114148) do
+ActiveRecord::Schema.define(:version => 20130509085744) do
 
   create_table "koordinators", :force => true do |t|
     t.string   "kurum"
@@ -47,10 +47,8 @@ ActiveRecord::Schema.define(:version => 20130508114148) do
 
   create_table "odeme_programs", :force => true do |t|
     t.string   "ad"
-    t.string   "katsayi"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "donem"
   end
 
   create_table "takvims", :force => true do |t|
