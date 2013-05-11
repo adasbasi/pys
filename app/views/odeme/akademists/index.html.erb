@@ -6,9 +6,12 @@
 <% content_for :menu do %>
   <ul class="nav nav-list extramenu">
     <li class="nav-header">İşlemler</li>
+    <li>Ders</li>
     <li><%= link_to "Akademisyen", odeme_akademists_path %></li>
     <li><%= link_to "Program", odeme_programs_path %></li>
     <li class="divider"></li>
+    <li><%= link_to "Açılan Program", odeme_programs_path %></li>
+    <li><%= link_to "Açılan Ders", odeme_programs_path %></li>
   </ul>
 <% end %>
 
