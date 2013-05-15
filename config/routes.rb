@@ -1,4 +1,5 @@
 Pys::Application.routes.draw do
+  root to: "otomasyon#index"
   match "odeme/" => "odeme#index"
 
   namespace :odeme do
@@ -9,15 +10,15 @@ Pys::Application.routes.draw do
 
   devise_for :users
 
-  root to: "otomasyon#index"
-
   namespace :odeme do
     resources :programs do
       resources :aprograms
       resources :koordinators
       resources :lectures
-      end
+    end
   end
+
+  match "/odeme/aprograms" => "odeme#liste"
 
 
   # The priority is based upon order of creation:

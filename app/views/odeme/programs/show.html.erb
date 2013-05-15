@@ -5,7 +5,7 @@
     <li><%= link_to "Akademisyen", odeme_akademists_path %></li>
     <li><%= link_to "Programlar", odeme_programs_path %></li>
     <li class="divider"></li>
-    <li><%= link_to "Açılan Program", odeme_programs_path %></li>
+    <li><%= link_to "Açılan Program", odeme_aprograms_path %></li>
     <li><%= link_to "Açılan Ders", odeme_programs_path %></li>
   </ul>
 <% end %>
@@ -131,7 +131,7 @@
           <table class="table table-striped">
             <tr>
               <td>
-              <%= select_year Date.today, :start_year => Time.now.year, :end_year => 2023, :field_name => :donem, :prefix => :profile %>
+                <%= select_year Date.today, :start_year => Time.now.year, :end_year => 2023, :field_name => :donem %>
               </td>
               <td>
                 <%= f.text_field :katsayi, placeholder:"Kredi" %>
