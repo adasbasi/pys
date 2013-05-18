@@ -14,6 +14,9 @@ class Odeme::ProgramsController < ApplicationController
   # GET /odeme/programs/1.json
   def show
     @odeme_program = Odeme::Program.find(params[:id])
+    @odeme = @odeme_program.aprograms.build
+   # 1.times { @odeme_program.koordinators.build }
+   # 1.times { @odeme_program.lectures.build}
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +28,9 @@ class Odeme::ProgramsController < ApplicationController
   # GET /odeme/programs/new.json
   def new
     @odeme_program = Odeme::Program.new
+  #  1.times { @odeme_program.aprograms.build }
+  #  1.times { @odeme_program.koordinators.build }
+  #  1.times { @odeme_program.lectures.build }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +47,10 @@ class Odeme::ProgramsController < ApplicationController
   # POST /odeme/programs.json
   def create
     @odeme_program = Odeme::Program.new(params[:odeme_program])
+  #  1.times { @odeme_program.aprograms.build }
+  #  1.times { @odeme_program.koordinators.build }
+  #  1.times { @odeme_program.lectures.build }
+
 
     respond_to do |format|
       if @odeme_program.save
