@@ -30,3 +30,25 @@
     <% end %>
   </table>
 <% end %>
+<% @unvan = { 1 =>'Okutman', 2 =>'Uzman', 3 => 'Araş. Gör.', 4 => 'Öğr. Gör.', 5 => 'Öğr. Gör. Dr.', 6 => 'Yrd. Doç. Dr.', 7 => 'Doç. Dr.', 8 => "Prof. Dr."} %>
+
+<% if @akademist %>
+  <h4>Akademisyen</h4>
+  <table class="table table-striped">
+    <tr>
+      <th>Ad</th>
+      <th>Soyad</th>
+      <th>Ünvan</th>
+      <th>Ödenecek Para</th>
+    </tr>
+    <% @akademist.each do |a| %>
+      <tr>
+        <td><%= a.ad %></td>
+        <td><%= a.soyad %></td>
+        <td><%= @unvan[a.unvan.to_i] %></td>
+        <% @katsayi = a.unvan.to_i * Lecture.find(a.lecture_id).kredi.to_i %>
+        <td><%= @katsayi*100 %>TL</td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

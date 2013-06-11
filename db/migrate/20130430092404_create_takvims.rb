@@ -2,7 +2,7 @@ class CreateTakvims < ActiveRecord::Migration
   def change
     create_table :takvims do |t|
       t.date :tarih
-      t.boolean :islem
+      t.string :islem
       t.references :lecture
       t.references :akademist
 

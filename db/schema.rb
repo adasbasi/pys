@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(:version => 20130611025149) do
   end
 
   create_table "takvims", :force => true do |t|
-    t.boolean  "islem"
+    t.string   "islem"
     t.integer  "lecture_id"
     t.integer  "akademist_id"
     t.datetime "created_at",   :null => false
