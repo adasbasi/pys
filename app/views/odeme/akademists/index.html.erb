@@ -15,7 +15,7 @@
   </ul>
 <% end %>
 
-<% @unvan = { 2 =>'Dr.', 3 =>'Yrd.Doc.Dr.', 4 => 'Doc.', 5 => 'Prof.'} %>
+<% @unvan = { 1 =>'Okutman', 2 =>'Uzman', 3 => 'Araş. Gör.', 4 => 'Öğr. Gör.', 5 => 'Öğr. Gör. Dr.', 6 => 'Yrd. Doç. Dr.', 7 => 'Doç. Dr.', 8 => "Prof. Dr."} %>
 
 <h4 class="pull-left">Akademik Personel</h4><br />
 <p class="pull-right"><%= link_to "Akademisyen Ekle", new_odeme_akademist_path %></p>
@@ -26,19 +26,21 @@
     <th>Soyad</th>
     <th>Unvan</th>
     <th>Katsayı</th>
-    <th>Ödenecek Miktar</th>
     <th></th>
     <th></th>
   </tr>
 
+<% @krd = 0%>
 <% @odeme_akademists.each_with_index do |odeme_akademist,i| %>
+  <% if @koor.include? "#{odeme_akademist.ad}" + "#{odeme_akademist.soyad}" %>
+    <% @krd = 2 %>
+  <% end %>
   <tr>
     <td><%= i+1 %></td>
     <td><%= odeme_akademist.ad %></td>
     <td><%= odeme_akademist.soyad %></td>
     <td><%= @unvan[odeme_akademist.unvan.to_i] %></td>
-    <td><%= @katsayi = odeme_akademist.unvan.to_i * Lecture.find(odeme_akademist.lecture_id).kredi.to_i %></td>
-    <td><%= @katsayi*100%></td>
+    <td><%= @katsayi = odeme_akademist.unvan.to_i * Lecture.find(odeme_akademist.lecture_id).kredi.to_i + @krd %></td>
     <td><%= link_to '', odeme_akademist, :class => "icon-check", :id => "tool", :title => "Akademisyen Bilgilerini Görüntüle" %></td>
     <td><%= link_to '', edit_odeme_akademist_path(odeme_akademist), :class => "icon-pencil", :id => "tool", :title => "Akademisyen Bilgilerini Düzenle" %></td>
   </tr>

@@ -4,7 +4,8 @@ class KoordinatorsController < ApplicationController
     @odeme_program = Odeme::Program.find(params[:program_id])
     @koordinator = @odeme_program.koordinators.create(params[:koordinator])
     if @koordinator.save
-      redirect_to "/odeme/programs/#{@odeme_program.id}"
+      @odeme_program.update_attribute(:krd,true)
+      redirect_to "/odeme/programs"
       flash[:notice] = "Başarılı bir şekilde kaydedildi."
     else
       redirect_to "/odeme/programs"

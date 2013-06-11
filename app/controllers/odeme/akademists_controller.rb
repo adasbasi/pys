@@ -1,8 +1,10 @@
+# encoding: utf-8
 class Odeme::AkademistsController < ApplicationController
   # GET /odeme/akademists
   # GET /odeme/akademists.json
   def index
     @odeme_akademists = Odeme::Akademist.all
+    @koor = Koordinator.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -38,11 +40,17 @@ class Odeme::AkademistsController < ApplicationController
   # GET /odeme/akademists/new
   # GET /odeme/akademists/new.json
   def new
-    @odeme_akademist = Odeme::Akademist.new
+    @lecture = Lecture.all
+    if @lecture.any?
+      @odeme_akademist = Odeme::Akademist.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @odeme_akademist }
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @odeme_akademist }
+      end
+    else
+      flash[:notice] = "Lütfen akademisyenin katılacağı programa ders ekleyiniz."
+      redirect_to "/odeme/programs"
     end
   end
 

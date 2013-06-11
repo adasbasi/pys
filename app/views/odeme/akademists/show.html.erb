@@ -75,17 +75,21 @@
     <th>Verdiği Ders:</th>
     <td><%= @odeme_akademist.lecture.ad %></td>
   </tr>
+  </table>
   <%= form_for([@odeme_akademist,@odeme_akademist.takvims.build]) do |f| %>
+    <p>Ders İşleme Durumu:</p>
+    <table class="table table-striped">
     <tr>
-      <th>Ders Tarihi:</th>
-      <td><%= f.date_select :tarih %></td>
+    <% for i in 1..15 %>
+      <td><%= i %></td>
+    <% end %>
     </tr>
     <tr>
-      <th>Ders İşleme Durumu:</th>
+    <% for i in 1..15 %>
       <td><%= f.check_box :islem %></td>
-      <td><%= f.submit %></td>
-    </tr>
+    <% end %>
+    </table>
+    <br />
+        <p><%= f.submit %></p>
   <% end %>
-</table>
 
-<div id='calendar'></div>

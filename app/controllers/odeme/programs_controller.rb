@@ -13,15 +13,16 @@ class Odeme::ProgramsController < ApplicationController
   # GET /odeme/programs/1
   # GET /odeme/programs/1.json
   def show
-    @odeme_program = Odeme::Program.find(params[:id])
-    @odeme = @odeme_program.aprograms.build
-   # 1.times { @odeme_program.koordinators.build }
-   # 1.times { @odeme_program.lectures.build}
+      @dnm = Odeme::Program.find(params[:id]).dnm
+      @krd = Odeme::Program.find(params[:id]).krd
+      @odeme_program = Odeme::Program.find(params[:id])
+    # 1.times { @odeme_program.koordinators.build }
+    # 1.times { @odeme_program.lectures.build}
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @odeme_program }
-    end
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @odeme_program }
+      end
   end
 
   # GET /odeme/programs/new

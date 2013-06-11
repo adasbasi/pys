@@ -1,7 +1,7 @@
 class CreateAprograms < ActiveRecord::Migration
   def change
     create_table :aprograms do |t|
-      t.date :donem
+      t.string :donem
       t.integer :katsayi
       t.references :program
 

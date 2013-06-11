@@ -38,6 +38,8 @@
   </ul>
 <% end %>
 
+
+<br /><br />
 <%= link_to "Program Ekleyin", new_odeme_program_path, class:"btn btn-primary yenile" %>
 <div class="wizard" id="wizard-demo">
 
@@ -47,10 +49,21 @@
     <h3>Bilgilendirme</h3>
     <div class="wizard-input-section">
       <p>
-	Program hakkında bilgiler
+      <% if @dnm == false %>
+        Açılmış bir program yok. Program açmak için devam ediniz.
+      <% elsif @dnm == true and @krd == false %>
+        Açılmış program mevcut. Koordinatör eklemek için lütfen ileri tıklayınız.
+      <% elsif @dnm == true and @krd == true %>
+        Eklenmiş koordinatörler mevcuttur. Lütfen ders ekleyiniz.
+      <% else %>
+        Ders eklemek için ileri tıklayınız.
+      <% end %>
       </p>
+
     </div>
   </div>
+
+  <% if @dnm == false %>
   <div class="wizard-card" data-cardname="group">
     <h3>Program Adı</h3>
     <div class="wizard-input-section">
@@ -60,12 +73,6 @@
       </p>
       <p> Programın dönemini ve katsayısını giriniz. </p>
       <div class="control-group">
-        <%= nested_form_for([@odeme]) do |f| %>
-          <%= f.fields_for :aprograms, :wrapper => true do |builder| %>
-            <%= render "a", :f => builder  %>
-          <% end %>
-          <p><%= f.link_to_add "Add a task", :aprograms %></p>
-        <% end %>
 	<%= form_for([@odeme_program,@odeme_program.aprograms.build], multipart: true) do |f| %>
           <table class="table table-striped">
             <tr>
@@ -81,37 +88,37 @@
               </td>
             </tr>
           </table>
-          <%= f.submit class: "btn" %>
+          <%= f.submit%>
         <% end %>
       </div>
     </div>
   </div>
-  <div class="wizard-card">
-    <h3>Koordinatör</h3>
-    <div class="wizard-input-section">
-      <p>
-	Lütfen aşağıdaki boş alanları doldurunuz.
-      </p>
-      <div class="control-group">
-	<%= form_for([@odeme_program, @odeme_program.koordinators.build]) do |f| %>
-          <table class="table table-striped">
-            <tr>
-              <td>
-                <%= f.text_field :kurum, placeholder: "Kurum Koordinatörü" %>
-              </td>
-              <td>
-                <%= f.text_field :akademik, placeholder: "Akademik Koordinatör" %>
-              </td>
-              <td>
-                <%= f.text_field :enstitu, placeholder: "Enstitü Koordinatörü" %>
-              </td>
-            </tr>
-          </table>
-          <%= f.submit %>
-        <% end %>
+  <% end %>
+  <% if @krd == false and @dnm == true %>
+    <div class="wizard-card">
+      <h3>Koordinatör</h3>
+      <div class="wizard-input-section">
+        <p>
+	  Lütfen aşağıdaki boş alanları doldurunuz.
+       </p>
+        <div class="control-group">
+	  <%= form_for([@odeme_program, @odeme_program.koordinators.build]) do |f| %>
+            <table class="table table-striped">
+              <tr>
+                <td>
+                  <%= f.text_field :kurum, placeholder: "Kurum Koordinatörü" %><br />
+                  <%= f.text_field :akademik, placeholder: "Akademik Koordinatör" %><br />
+                  <%= f.text_field :enstitu, placeholder: "Enstitü Koordinatörü" %>
+                </td>
+              </tr>
+            </table>
+           <%= f.submit %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
+  <% if @dnm == true %>
   <div class="wizard-card">
     <h3>Ders</h3>
     <div class="wizard-input-section">
@@ -123,25 +130,21 @@
           <table class="table table-striped">
             <tr>
               <td>
-                <%= f.text_field :ad, placeholder:"Ad" %>
-              </td>
-              <td>
-                <%= f.text_field :kredi, placeholder:"Kredi" %>
-              </td>
-              <td>
+                <%= f.text_field :ad, placeholder:"Ders Adı" %><br />
+                <%= f.text_field :kredi, placeholder:"Kredi" %><br />
                 <%= f.text_field :sube, placeholder: "Şube" %>
               </td>
             </tr>
           </table>
+          <%= f.submit class: "btn" %>
+        <% end %>
           <hr />
           <h6>CSV dosyası ile ders ekleyin</h6>
           <%= file_field_tag :file%>
-          <%= f.submit class: "btn" %>
-        <% end %>
       </div>
     </div>
   </div>
-
+  <% end %>
   <div class="wizard-error">
     <div class="alert alert-error">
       Bilgilerin kaydedilmesinde <strong>hata</strong> meydana geldi. Lütfen tekrar gönderiniz.
@@ -236,7 +239,7 @@ $(function() {
 	wizard.on("submit", function(wizard) {
 	  $.ajax({
 	      type: "POST",
-              url: '/odeme/programs/"#{<%= @odeme_program.id %>}"',
+              url: '/odeme/programs/' + <%= @odeme_program.id%> + '/aprograms',
 	      data: wizard.serialize(),
 	      dataType: "json",
 	      success: function(resp) {
@@ -277,9 +280,9 @@ $(function() {
 		alert("Disabled for demo.");
 	});
 
-	$("#open-wizard").click(function() {
-		wizard.show();
-	});
+//	$("#open-wizard").click(function() {
+//		wizard.show();
+//	});
 
 	wizard.show();
 });

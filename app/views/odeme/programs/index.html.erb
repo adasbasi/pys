@@ -15,12 +15,20 @@
   </ul>
 <% end %>
 
+<% if notice %>
+  <br /><br />
+  <div class="alert alert-error">
+    <p class="notice"><%= notice %></p>
+  </div>
+<% end %>
 <h4 class="pull-left">Programlar</h4><br />
 <p class="pull-right"><%= link_to "Program Ekle", new_odeme_program_path %></p>
 <table class="table table-hover">
   <tr>
     <th></th>
     <th>Ad</th>
+    <th></th>
+    <th></th>
     <th></th>
     <th></th>
     <th></th>
@@ -33,9 +41,11 @@
     <td><%= i+1 %></td>
 
     <td><%= odeme_program.ad %></td>
-    <td></td>
-    <td></td>
-    <td><%= link_to '', odeme_program, :class => 'icon-check', :title => "Program Bilgileri", :id => "tool" %></td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td><%= link_to '', odeme_program, :class => 'icon-calendar', :title => "Dönem Ekle", :id => "tool" %></td>
+    <td><%= link_to '', odeme_program, :class => 'icon-user', :title => "Koordinatör Ekle", :id => "tool" %></td>
+    <td><%= link_to '', odeme_program, :class => 'icon-book', :title => "Ders Ekle", :id => "tool" %></td>
     <td><%= link_to '', edit_odeme_program_path(odeme_program), :class => 'icon-pencil', :title => "Programı Düzenle", :id => "tool" %></td>
     <td><%= link_to '', odeme_program, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-cancel', :title => "Programı Sil", :id => "tool" %></td>
   </tr>

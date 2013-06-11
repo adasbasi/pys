@@ -7,9 +7,9 @@ class Lecture < ActiveRecord::Base
   has_many :takvims
   validates :ad, :kredi, :sube, presence:true
   validates :kredi, numericality:true
-  def self.import(file)
-    CSV.foreach(Pathname(file), headers: true) do |row|
-      Lecture.create! row.to_hash
-    end
-  end
+#  def self.import(file)
+ #   CSV.foreach(Pathname(file), headers: true) do |row|
+  #    Lecture.create! row.to_hash
+  #  end
+ # end
 end

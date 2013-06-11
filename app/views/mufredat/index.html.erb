@@ -1,0 +1,31 @@
+<% content_for :menu do %>
+  <ul class="nav nav-list extramenu">
+    <li class="nav-header">İşlemler</li>
+    <li class="divider"></li>
+    <li><%= link_to "Akademisyen", odeme_akademists_path %></li>
+    <li><%= link_to "Program", odeme_programs_path %></li>
+    <li class="divider"></li>
+    <li><%= link_to "Açılan Program", odeme_aprograms_path  %></li>
+  </ul>
+<% end %>
+
+<% if @aktif.any? %>
+  <h4>Aktif Programlar</h4>
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>Program İsmi</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% @aktif.each_with_index do |f,i| %>
+      <tr>
+        <td><%= i+1 %></td>
+        <td><%= @odeme_program[f.program_id].ad %></td>
+        <td><%= link_to "Takip",root_path %></td>
+        <td><%= link_to "Haftalık Müfredat", root_path %></td>
+        <td><%= link_to "Aka. Programı", root_path %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

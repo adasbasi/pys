@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130509113519) do
+ActiveRecord::Schema.define(:version => 20130611025149) do
 
   create_table "aprograms", :force => true do |t|
-    t.date     "donem"
+    t.string   "donem"
     t.integer  "katsayi"
     t.integer  "program_id"
     t.datetime "created_at", :null => false
@@ -57,12 +57,14 @@ ActiveRecord::Schema.define(:version => 20130509113519) do
 
   create_table "odeme_programs", :force => true do |t|
     t.string   "ad"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "katsayi"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "krd",        :default => false
+    t.boolean  "dnm",        :default => false
   end
 
   create_table "takvims", :force => true do |t|
-    t.date     "tarih"
     t.boolean  "islem"
     t.integer  "lecture_id"
     t.integer  "akademist_id"

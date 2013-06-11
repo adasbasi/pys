@@ -1,7 +1,8 @@
 Pys::Application.routes.draw do
   root to: "otomasyon#index"
   match "odeme/" => "odeme#index"
-
+  
+  match "mufredat/" => "mufredat#index"
   namespace :odeme do
     resources :akademists do
       resources :takvims
